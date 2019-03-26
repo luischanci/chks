@@ -13,7 +13,11 @@ User-written Stata command. Estimation of a non-linear index under sample select
 2. Examples.
 
   - General model,
-    $$log(y)_{it}=-(1/\rho)log\(1+\sum_{m}{\delta_m*y_m}\)+x_{it}\beta+\epsilon_{it}$$
+  -
+    ![equation](http://latex.codecogs.com/gif.latex?Concentration%3D%5Cfrac%7BTotalTemplate%7D%7BTotalVolume%7D)  
+
+    <a href="https://www.codecogs.com/eqnedit.php?latex=log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" title="log(y)_{it}=-(1/\rho)log\(1+\sum_{m}{\delta_m*y_m}\)+x_{it}\beta+\epsilon_{it}" /></a>
+
 
       i) using a basic NLS approach,
 
