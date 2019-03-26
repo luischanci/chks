@@ -22,14 +22,22 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) using a basic NLS approach,
 
-      iii) if ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it}), ![equation]('https://latex.codecogs.com/gif.latex?v_{it}\sim \mathcal{N}(0,\sigma^2_v)'), and ![equation](https://latex.codecogs.com/gif.latex?u_{it}\sim \mathcal{N}^+(0,\sigma^2_u)),
+      `chks y1 x1 x2, idx(y2 y3) ces nls`
 
+      ii) if ![equation]('https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)'),
 
+        `chks y1 x1 x2, idx(y2 y3) ces sf`
+
+      iii) in addition to (ii), considering the probability that some $u_{it}=0$ (see the working paper for more detail),
+
+        `chks y1 x1 x2, idx(y2 y3) ces zisf`
 
     - a more simple version,
 
+      in progress...
 
     - Other possibilities,
 
+      in progress...
 
 <a href="https://luischanci.github.io">Luis Chancí</a>
