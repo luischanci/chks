@@ -14,7 +14,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
   - General model,
 
-    ![equation](https://latex.codecogs.com/gif.latex?log%28Y_M%29_%7Bit%7D%3D-%281/%5Crho%29*log%5Cleft%281&plus;%5Csum_%7Bm%5Cneq%20M%7D%7B%5Cdelta_m*Y_m%7D%5Cright%29&plus;%5Cmathbf%7Bx%7D_%7Bit%7D%5Cmathbf%7B%5Cbeta%27%7D&plus;%5Cepsilon_%7Bit%7D)
+    ![equation](https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m}{\delta_m*y_m}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
     <!--- This generates a link:
     <a href="https://www.codecogs.com/eqnedit.php?latex=log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" title="log(y)_{it}=-(1/\rho)log\(1+\sum_{m}{\delta_m*y_m}\)+x_{it}\beta+\epsilon_{it}" /></a>
