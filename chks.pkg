@@ -1,0 +1,10 @@
+********************************************** chks.pkg
+v 1.1
+d chsk
+d Stata program to estimate a non-linear index with potential sample selection issues
+d
+d Date: 20190320
+d Luis Chancí, Binghamton University and UST-Chile
+d
+f chks.sthlp
+f chks.ado
