@@ -1,0 +1,10 @@
+********************************************** stata.toc
+v 1.1
+d chks is a Stata program to estimate a non-linear index with potential sample selection issues
+d Author: Luis Chancí
+d email : lchanci1 at binghamton dot edu
+d Binghamton University and UST-Chile
+d https://luischanci.github.io
+d 'chks': chks.ado is a Stata command to estimate a non-linear index with potential sample selection issues
+
+p chks
