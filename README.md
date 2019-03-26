@@ -24,7 +24,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       `chks y1 x1 x2, idx(y2 y3) ces nls`
 
-      ii) if ![equation]('https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)'),
+      ii) if ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)),
 
         `chks y1 x1 x2, idx(y2 y3) ces sf`
 
