@@ -22,7 +22,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) using a basic NLS approach,
 
-      iii) if $\epsilon_{it}=v_{it}-u_{it}$, $v_{it}\sim \mathcal{N}(0,\sigma^2_v)$, and $u_{it}\sim \mathcal{N}^+(0,\sigma^2_u)$,
+      iii) if ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it}), ![equation]('https://latex.codecogs.com/gif.latex?v_{it}\sim \mathcal{N}(0,\sigma^2_v)'), and ![equation](https://latex.codecogs.com/gif.latex?u_{it}\sim \mathcal{N}^+(0,\sigma^2_u)),
 
 
 
