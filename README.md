@@ -1,14 +1,17 @@
 
 ## chks
 
-User-written Stata command. Estimation of a non-linear index under sample selection.
+User-written Stata command. Estimation of a non-linear index under sample selection. This is a code in progress.
+
+<a href="https://luischanci.github.io">(Home)</a>
 
 1. To install:
-  - Directly from stata:
+  - From Stata:
 
-    `net install mypoissonch, from(https://luischanci.github.io/mypoissonch/) replace`
+    `net install mypoissonch, from(https://luischanci.github.io/chks/) replace`
 
-    - Manual: <a href="https://github.com/luischanci/mypoissonch/zipball/master">Download Files</a>, unzip, and locate all the files into the Stata ado folder path (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
+    - Manual: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
+
 
 2. Examples.
 
@@ -16,11 +19,8 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     ![equation](https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m}{\delta_m*y_m}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
-    <!--- This generates a link:
-    <a href="https://www.codecogs.com/eqnedit.php?latex=log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)log\(1&plus;\sum_{m}{\delta_m*y_m}\)&plus;x_{it}\beta&plus;\epsilon_{it}" title="log(y)_{it}=-(1/\rho)log\(1+\sum_{m}{\delta_m*y_m}\)+x_{it}\beta+\epsilon_{it}" /></a>
-    -->
 
-      i) using a basic NLS approach,
+      i) Estimation using a NLS approach,
 
       `chks y1 x1 x2, idx(y2 y3) ces nls`
 
@@ -32,11 +32,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
         `chks y1 x1 x2, idx(y2 y3) ces zisf`
 
-    - a more simple version,
-
-      in progress...
-
-    - Other possibilities,
+    - Other models or possibilities,
 
       in progress...
 
