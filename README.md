@@ -1,14 +1,14 @@
 
 ## chks
 
-User-written Stata command. Estimation of a non-linear index under sample selection. This is a code in progress.
+User-written Stata command. Estimation of a non-linear index under sample selection. This is a code under construction for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
 
 <a href="https://luischanci.github.io">(Home)</a>
 
 1. To install:
   - From Stata:
 
-    `net install mypoissonch, from(https://luischanci.github.io/chks/) replace`
+    `net install chks, from(https://luischanci.github.io/chks/) replace`
 
     - Manual: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
@@ -31,17 +31,17 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) Estimation using a NLS approach,
 
-      `chks Y1 X1 X2, idx(Y2 Y3) t(ces) es(nls)`
+      `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(nls)`
 
       ii) On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-      `chks y1 x1 x2, idx(y2 y3) t(ces) es(sf)`
+      `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(sf)`
 
       iii) Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command is:
 
-      `chks y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
+      `chks Y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
-      In this case there are two additonal options for the estimation: Maximum Likelihood or EM-Algorithm.
+      In this case there are two additonal options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
 
   - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inneficiency Stochastic Frontier is:
 
