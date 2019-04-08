@@ -40,19 +40,19 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     with ![equation](https://latex.codecogs.com/gif.latex?Y_m^{*}=Y_m/Y_1)
 
-		i) Estimation using a NLS approach,
+	i) Estimation using a NLS approach,
 
-    		`chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(nls)`
+    	`chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(nls)`
 
-    	ii) On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
+    ii) On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-    		`chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(sf)`
+    	`chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(sf)`
 
-    	iii) Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command is:
+    iii) Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command is:
 
     	`chks Y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
-        In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
+    	In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
 
   - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inefficiency Stochastic Frontier is:
 
