@@ -15,7 +15,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 2. Example.
 
-  - The general model is one in which a non-linear index <img src="http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="15" height="17" /> is a function of some explanatory variables **X** and there is a residual component <img src="http://www.sciweavers.org/tex2img.php?eq=%5Cepsilon&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="15" height="17" />:
+  - The general model is one in which a non-linear index ![equation](https://latex.codecogs.com/gif.latex?\eta) is a function of a vector of explanatory variables **x** and a residual component ![equation](https://latex.codecogs.com/gif.latex?\epsilon):
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
