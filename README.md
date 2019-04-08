@@ -21,7 +21,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     where,
 
-    ![equation](https://latex.codecogs.com/gif.latex?\eta=(\sum{\delta_mY_m^\rho})^{1/\rho})
+    ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum{\delta_mY_m^\rho}\right)^{1/\rho})
 
     thus,
 
