@@ -15,7 +15,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 2. Example.
 
-  - The general model is one in which a non-linear index <img src="http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=White&fc=Black&im=ps&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="" height="" /> is a function of some explanatory variables ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0) and a residual component ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0):
+  - The general model is one in which a non-linear index <img src="http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="15" height="17" /> is a function of some explanatory variables **X** and there is a residual component <img src="http://www.sciweavers.org/tex2img.php?eq=%5Cepsilon&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="15" height="17" />:
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
@@ -31,18 +31,18 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) Estimation using a NLS approach,
 
-      `chks y1 x1 x2, idx(y2 y3) ces nls`
+      ```chks y1 x1 x2, idx(y2 y3) t(ces) es(nls)```
 
-      ii) if ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)),
+      ii) On the other hand, is the residual part is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)),
 
-        `chks y1 x1 x2, idx(y2 y3) ces sf`
+        ```chks y1 x1 x2, idx(y2 y3) t(ces) es(sf)```
 
-      iii) in addition to (ii), considering the probability that some $u_{it}=0$ (see the working paper for more detail),
+      iii) Finally, if in addition to (ii), there is a probability that some $u_{it}=0$ (see Kumbhakar, Parmeter and Tsionas. 2013. A zero inefficiency stochastic frontier model, in _Journal of Econometrics_), the estimation is:
 
-        `chks y1 x1 x2, idx(y2 y3) ces zisf`
+        ```chks y1 x1 x2, idx(y2 y3) t(ces) es(zsf)```
 
-    - Other models or possibilities,
+    - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions.
 
-      in progress...
+
 
 <a href="https://luischanci.github.io">Luis Chancí</a>
