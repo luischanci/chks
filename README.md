@@ -61,13 +61,13 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     `chks y1 x1 x2, es(zsf)`
 
-	In any case, it is also possible to report the robust standard errors (add `robust`) or to omit the constant (add `nocons`).
+	In any case, it is also possible to report the robust standard errors (add `robust`) or omit the constant term (add `nocons`).
 
 4. Examples.
 - Linear model (ZISF).
     - Data (simulation).
 
-      To warm up, I am going to use a simulation proposed by Diego Restrepo (of course, any mistake is my responsability).
+      To illustrate the use of the command, I am going to use first a simulation proposed by Diego Restrepo (of course, any mistake would be my responsability).
 
     ```
     clear all
