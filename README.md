@@ -15,15 +15,17 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 2. Example.
 
-  - The general model is
+  - The general model is:
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
-    where, ![equation](https://latex.codecogs.com/gif.latex?\eta_{it}=(\sum{\delta_mY_m^\rho})^{1/\rho})
+    where,
+
+    ![equation](https://latex.codecogs.com/gif.latex?\eta=(\sum{\delta_mY_m^\rho})^{1/\rho})
 
     thus,
 
-    ![equation](https://latex.codecogs.com/gif.latex?log(Y_1)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m\neq 1}{\delta_m*(Y_m^{*\rho}-1)}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+    ![equation](https://latex.codecogs.com/gif.latex?log(Y_1)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m\neq1}{\delta_m*(Y_m^{*\rho}-1)}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
     with ![equation](https://latex.codecogs.com/gif.latex?Y_m^{*}=Y_m/Y_1)
 
