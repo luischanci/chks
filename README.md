@@ -19,7 +19,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
-    where,
+    where, let's say that for instance there are three varaibles that form the index:
 
     ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum_{m=1}^3{\delta_mY_m^\rho}\right)^{1/\rho})
 
@@ -37,12 +37,18 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       `chks y1 x1 x2, idx(y2 y3) t(ces) es(sf)`
 
-      iii) Finally, if in addition to (ii), there is a probability that some $u_{it}=0$ (see Kumbhakar, Parmeter and Tsionas. 2013. A zero inefficiency stochastic frontier model, in _Journal of Econometrics_), the estimation is:
+      iii) Finally, if in addition to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, "A zero inefficiency stochastic frontier model", in _Journal of Econometrics_ , 172(1), 66-76), the command is:
 
       `chks y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
-    - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions.
+      In this case there are two options for the estimation: Maximum Likelihood or EM-Algorithm.
 
+    - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inneficiency Stochastic Frontier is:
 
+    ![equation](https://latex.codecogs.com/gif.latex?y_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+
+    with ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)),
+
+    `chks y1 x1 x2, es(zsf)`
 
 <a href="https://luischanci.github.io">Luis Chancí</a>
