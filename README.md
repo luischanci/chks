@@ -31,15 +31,15 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) Estimation using a NLS approach,
 
-      ```chks y1 x1 x2, idx(y2 y3) t(ces) es(nls)```
+      `chks y1 x1 x2, idx(y2 y3) t(ces) es(nls)`
 
       ii) On the other hand, is the residual part is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)),
 
-        ```chks y1 x1 x2, idx(y2 y3) t(ces) es(sf)```
+      `chks y1 x1 x2, idx(y2 y3) t(ces) es(sf)`
 
       iii) Finally, if in addition to (ii), there is a probability that some $u_{it}=0$ (see Kumbhakar, Parmeter and Tsionas. 2013. A zero inefficiency stochastic frontier model, in _Journal of Econometrics_), the estimation is:
 
-        ```chks y1 x1 x2, idx(y2 y3) t(ces) es(zsf)```
+      `chks y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
     - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions.
 
