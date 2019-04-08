@@ -10,18 +10,19 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     `net install chks, from(https://luischanci.github.io/chks/) replace`
 
-    - Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
+  - Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
 2. Syntaxis.
   - The general syntaxis is,
 
-  `chks depvariable xregressors, indx(indxvariables) type() estimation() eoption()`
+    `chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
 
-  where,
-    - `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
-    - `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
-    - `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
-    - `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
+    where,
+
+      - `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
+      - `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+      - `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
+      - `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
 
 3. Models.
 
@@ -61,31 +62,33 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     `chks y1 x1 x2, es(zsf)`
 
-  In any case, it is also possible to report the robust standard errors (add `robust`) or to omit the constant (add `nocons`).
+    In any case, it is also possible to report the robust standard errors (add `robust`) or to omit the constant (add `nocons`).
 
 4. Examples.
   - Linear model (ZISF).
-    - Simulate the data. To warm up, I am going to use a simulation proposed by <a href="http://www.eafit.edu.co/docentes-investigadores/Paginas/diego-restrepo.aspx">Diego Restrepo</a> (of course, any mistake is my responsability).
+    - Simulate the data.
+
+      To warm up, I am going to use a simulation proposed by <a href="http://www.eafit.edu.co/docentes-investigadores/Paginas/diego-restrepo.aspx">Diego Restrepo</a> (of course, any mistake is my responsability).
 
     ```
     clear all
     gen x = rnormal()/10
     gen v = rnormal()/10
     gen z = rnormal()
-    gentrun double u, left(0)		   /* Need module GENTRUN */
-    replace u = u/10 				       /* u ~ Truncated-left N(0,0.1)*/
-    replace u = 0 if _n > _N-_N/2	 /* For a  p=50%, u=0, no inefficiency*/
+    gentrun double u, left(0)     /* Need module GENTRUN */
+    replace u = u/10              /* u ~ Truncated-left N(0,0.1)*/
+    replace u = 0 if _n > _N-_N/2 /* For a  p=50%, u=0, no inefficiency*/
     gen 	  e = v + u
     gen 	  y = 1 + x + e
     ```
 
     - Command:
 
-    `chks y x, es(zsf)`
+      `chks y x, es(zsf)`
 
-    or
+      or
 
-    `chks y x, es(zsf) eo(ml)`
+      `chks y x, es(zsf) eo(ml)`
 
     - Results using EM-algorithm:
 
@@ -122,7 +125,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
     - Results using MLE:
 
     ```
-    . chks yD xD, es(zsf) eo(ml)
+    . chks y x, es(zsf) eo(ml)
     Zero Stochastic Frontier for linear models
     (ZSF, linear model)
     Iteration 0:   f(p) = -14.388102  (not concave)
