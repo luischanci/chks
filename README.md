@@ -52,7 +52,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     	`chks Y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
-    	In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
+    In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
 
   - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inefficiency Stochastic Frontier is:
 
