@@ -167,7 +167,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
     ------------------------------------------------------------------------------
     ```
 
-    in this case, for this nonlinear function without additional especifications in the residual component, a similar result can be obtained using NLS in Stata:
+    In this particular example, a nonlinear function without additional especifications in the residual component, a similar result can be obtained using NLS in Stata:
 
     ```
 		g  ly1 = ln(Y1)
