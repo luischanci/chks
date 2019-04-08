@@ -15,7 +15,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 2. Example.
 
-  - The general model is:
+  - The general model is one in which a non-linear index <img src="http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=White&fc=Black&im=ps&fs=12&ff=arev&edit=0" align="center" border="0" alt="\eta" width="" height="" /> is a function of some explanatory variables ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0) and a residual component ![equation](http://www.sciweavers.org/tex2img.php?eq=%5Ceta&bc=Transparent&fc=Black&im=png&fs=12&ff=arev&edit=0):
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
@@ -23,7 +23,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum{\delta_mY_m^\rho}\right)^{1/\rho})
 
-    thus,
+    thus, the equation to estimate is:
 
     ![equation](https://latex.codecogs.com/gif.latex?log(Y_1)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m\neq1}{\delta_m*(Y_m^{*\rho}-1)}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
