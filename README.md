@@ -1,5 +1,5 @@
 
-## chks
+# chks
 
 User-written Stata command. Estimation of a non-linear index under sample selection. This is a code under construction for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
 
