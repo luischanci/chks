@@ -42,17 +42,17 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       i) Estimation using a NLS approach,
 
-      `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(nls)`
+        `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(nls)`
 
       ii) On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-      `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(sf)`
+        `chks Y1 x1 x2, idx(Y2 Y3) t(ces) es(sf)`
 
       iii) Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command is:
 
-      `chks Y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
+        `chks Y1 x1 x2, idx(y2 y3) t(ces) es(zsf)`
 
-      In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
+        In this case there are two additional options for the estimation: Maximum Likelihood (add `eo(ml)`) or EM-Algorithm (add `eo(em)`).
 
   - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inefficiency Stochastic Frontier is:
 
@@ -66,9 +66,9 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 4. Examples.
   - Linear model (ZISF).
-    - Simulate the data.
+    - Data (simulation).
 
-      To warm up, I am going to use a simulation proposed by <a href="http://www.eafit.edu.co/docentes-investigadores/Paginas/diego-restrepo.aspx">Diego Restrepo</a> (of course, any mistake is my responsability).
+      To warm up, I am going to use a simulation proposed by Diego Restrepo (of course, any mistake is my responsability).
 
     ```
     clear all
@@ -146,6 +146,67 @@ User-written Stata command. Estimation of a non-linear index under sample select
             lnsigma_v |  -2.263115   .0683824   -33.09   0.000    -2.397142   -2.129088
     logit_probability |   1.475334   1.507923     0.98   0.328    -1.480141    4.430808
     -----------------------------------------------------------------------------------
+    ```
+
+  - Non-linear index:
+
+    ```
+    use https://luischanci.github.io/chks/chksdata1, clear
+    chks Y1 x1 x2, indx(Y2 Y3) es(nls) t(ces) r
+
+    Iteration 16:  f(p) =  12.058803
+    ------------------------------------------------------------------------------
+              Y1 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+    -------------+----------------------------------------------------------------
+              x1 |   .0158278   .0006196    25.54   0.000     .0146134    .0170422
+              x2 |   .0401204   .0008423    47.63   0.000     .0384695    .0417712
+           _cons |   2.894777   .0180462   160.41   0.000     2.859407    2.930146
+              Y2 |    .225702    .012979    17.39   0.000     .2002636    .2511403
+              Y3 |   .5136438   .0136537    37.62   0.000     .4868831    .5404046
+             rho |   2.301384   .1146792    20.07   0.000     2.076617    2.526151
+    ------------------------------------------------------------------------------
+    ```
+
+    in this case, for this nonlinear function without additional especifications in the residual component, a similar result can be obtained using NLS in Stata:
+
+    ```
+		g  ly1 = ln(Y1)
+		g  ry2 = Y2/Y1
+		g  ry3 = Y3/Y1
+
+    nl (ly1 = -(1/{rho = 0.5})*ln( 1 + 			 ///
+						  {delta2 = 0.3}*(ry2^{rho}-1) + ///
+						  {delta3 = 0.3}*(ry3^{rho}-1) ) ///
+						  + ({b0}+{b1}*x1+{b2}*x2) ), r
+
+		Iteration 0:  residual SS =  21.78561
+		Iteration 1:  residual SS =  13.84372
+		Iteration 2:  residual SS =  12.23324
+		Iteration 3:  residual SS =  12.06096
+		Iteration 4:  residual SS =  12.05881
+		Iteration 5:  residual SS =   12.0588
+		Iteration 6:  residual SS =   12.0588
+		Iteration 7:  residual SS =   12.0588
+
+
+		Nonlinear regression                                Number of obs =      1,000
+		                                                    R-squared     =     0.9839
+		                                                    Adj R-squared =     0.9838
+		                                                    Root MSE      =   .1101435
+		                                                    Res. dev.     =  -1580.083
+
+		------------------------------------------------------------------------------
+		             |               Robust
+		         ly1 |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+		-------------+----------------------------------------------------------------
+		        /rho |   2.301383   .1085109    21.21   0.000     2.088447     2.51432
+		     /delta2 |    .225702   .0124839    18.08   0.000     .2012041    .2501999
+		     /delta3 |   .5136438   .0134125    38.30   0.000     .4873237    .5399639
+		         /b0 |   2.894777   .0180631   160.26   0.000      2.85933    2.930223
+		         /b1 |   .0158278   .0006212    25.48   0.000     .0146087    .0170469
+		         /b2 |   .0401204   .0008432    47.58   0.000     .0384657     .041775
+		------------------------------------------------------------------------------
+	  Parameter b0 taken as constant term in model
     ```
 
 -----
