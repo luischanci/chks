@@ -13,12 +13,19 @@ User-written Stata command. Estimation of a non-linear index under sample select
     - Manual: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
 
-2. Examples.
+2. Example.
 
-  - General model,
+  - The general model is
 
-    ![equation](https://latex.codecogs.com/gif.latex?log(y)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m}{\delta_m*y_m}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+    ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
+    where, ![equation](https://latex.codecogs.com/gif.latex?\eta_{it}=(\sum{\delta_mY_m^\rho})^{1/\rho})
+
+    thus,
+
+    ![equation](https://latex.codecogs.com/gif.latex?log(Y_1)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m\neq 1}{\delta_m*(Y_m^{*\rho}-1)}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+
+    with ![equation](https://latex.codecogs.com/gif.latex?Y_m^{*}=Y_m/Y_1)
 
       i) Estimation using a NLS approach,
 
