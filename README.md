@@ -17,6 +17,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
   `chks depvariable xregressors, indx(indxvariables) type() estimation() eoption()`
 
+  where,
     - `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
     - `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
     - `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
@@ -63,28 +64,30 @@ User-written Stata command. Estimation of a non-linear index under sample select
   In any case, it is also possible to report the robust standard errors (add `robust`) or to omit the constant (add `nocons`).
 
 4. Examples.
-
-  4.1. **Linear model (ZISF).**
-
+  - Linear model (ZISF).
     - Simulate the data. To warm up, I am going to use a simulation proposed by <a href="http://www.eafit.edu.co/docentes-investigadores/Paginas/diego-restrepo.aspx">Diego Restrepo</a> (of course, any mistake is my responsability).
 
-      ```
-      clear all
-      gen x = rnormal()/10
-      gen v = rnormal()/10
-      gen z = rnormal()
-      gentrun double u, left(0)		   /* Need module GENTRUN */
-      replace u = u/10 				       /* u ~ Truncated-left N(0,0.1)*/
-      replace u = 0 if _n > _N-_N/2	 /* For a  p=50%, u=0, no inefficiency*/
-      gen 	  e = v + u
-      gen 	  y = 1 + x + e
-      ```
+    ```
+    clear all
+    gen x = rnormal()/10
+    gen v = rnormal()/10
+    gen z = rnormal()
+    gentrun double u, left(0)		   /* Need module GENTRUN */
+    replace u = u/10 				       /* u ~ Truncated-left N(0,0.1)*/
+    replace u = 0 if _n > _N-_N/2	 /* For a  p=50%, u=0, no inefficiency*/
+    gen 	  e = v + u
+    gen 	  y = 1 + x + e
+    ```
 
     - Command:
 
     `chks y x, es(zsf)`
 
-    - Results:
+    or
+
+    `chks y x, es(zsf) eo(ml)`
+
+    - Results using EM-algorithm:
 
     ```
     . chks y x, es(zsf)
@@ -115,10 +118,39 @@ User-written Stata command. Estimation of a non-linear index under sample select
     logit_probability |   1.627449   .1207253    13.48   0.000     1.390832    1.864066
     -----------------------------------------------------------------------------------
     ```
+
+    - Results using MLE:
+
+    ```
+    . chks yD xD, es(zsf) eo(ml)
+    Zero Stochastic Frontier for linear models
+    (ZSF, linear model)
+    Iteration 0:   f(p) = -14.388102  (not concave)
+    Iteration 1:   f(p) =  365.23572  (not concave)
+    Iteration 2:   f(p) =  373.16491  (not concave)
+    Iteration 3:   f(p) =  374.85774
+    Iteration 4:   f(p) =  375.08149
+    Iteration 5:   f(p) =  375.09279
+    Iteration 6:   f(p) =  375.09283
+    Iteration 7:   f(p) =  375.09283
+    (Zero) Stochastic Frontier, linear model. M.L.E.
+    -----------------------------------------------------------------------------------
+                   yD |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+    ------------------+----------------------------------------------------------------
+                   xD |     1.0212   .0515218    19.82   0.000     .9202194    1.122181
+                _cons |   1.036664   .0175377    59.11   0.000     1.002291    1.071037
+            lnsigma_u |  -2.115596   .3437051    -6.16   0.000    -2.789246   -1.441947
+            lnsigma_v |  -2.263115   .0683824   -33.09   0.000    -2.397142   -2.129088
+    logit_probability |   1.475334   1.507923     0.98   0.328    -1.480141    4.430808
+    -----------------------------------------------------------------------------------
+    ```
+
 -----
 
 Author
 ---
 <a href="https://luischanci.github.io">Luis Chancí</a>
+
 lchanci1@binghamton.edu
+
 Economics, Binghamton University.
