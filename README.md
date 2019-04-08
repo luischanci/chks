@@ -64,7 +64,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 	In any case, it is also possible to report the robust standard errors (add `robust`) or omit the constant term (add `nocons`).
 
 4. Examples.
-- Linear model (ZISF).
+- Example 1: **Linear model (ZISF)**.
     - Data (simulation).
 
       To illustrate the use of the command, I am going to use first a simulation proposed by Diego Restrepo (of course, any mistake would be my responsability).
@@ -147,7 +147,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
     -----------------------------------------------------------------------------------
     ```
 
-  - Non-linear index:
+- Example 2: **Non-linear index**.
 
     ```
     use https://luischanci.github.io/chks/chksdata1, clear
