@@ -51,6 +51,8 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     `chks y1 x1 x2, es(zsf)`
 
+In any cases is possible to report the robust standar errors (add `robust`) or ommit the constant (add `nocons`).
+
 -----
 
 <a href="https://luischanci.github.io">Luis Chancí</a>
