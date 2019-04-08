@@ -209,9 +209,9 @@ User-written Stata command. Estimation of a non-linear index under sample select
 	  Parameter b0 taken as constant term in model
     ```
 
-----
-Author
-----
+-----
+### Author
+
 <a href="https://luischanci.github.io">Luis Chancí</a>
 
 lchanci1@binghamton.edu
