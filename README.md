@@ -13,9 +13,10 @@ User-written Stata command. Estimation of a non-linear index under sample select
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
 2. Syntaxis.
+
 	- The general syntaxis is,
 
-    	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
+    	```chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()```
 
     	where,
 
