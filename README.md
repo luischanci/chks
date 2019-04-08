@@ -19,7 +19,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
     ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
-    where, let's say that for instance there are three varaibles that form the index:
+    where, for instance, there are three variables that form the index (could be M variables):
 
     ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum_{m=1}^3{\delta_mY_m^\rho}\right)^{1/\rho})
 
@@ -43,7 +43,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
       In this case there are two options for the estimation: Maximum Likelihood or EM-Algorithm.
 
-    - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inneficiency Stochastic Frontier is:
+  - Other models or possibilities include simple variations, such as a Cobb-Douglas index, or other even more simple linear functions. For instance, a simpler version of a Zero-Inneficiency Stochastic Frontier is:
 
     ![equation](https://latex.codecogs.com/gif.latex?y_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
