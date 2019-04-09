@@ -215,7 +215,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
  - Example 4: **Non-linear (Index). Zero Stochastic Frontier**.
 
-   	`chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)`
+	`chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)`
 
 	```
 	------------------------------------------------------------------------------------
