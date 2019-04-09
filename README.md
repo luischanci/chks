@@ -217,7 +217,6 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
    	```
     chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)
-
 	(Zero) Stochastic Frontier. Non-linear model. EM-Algorithm.
     ------------------------------------------------------------------------------------
                     Y1 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
@@ -232,7 +231,6 @@ User-written Stata command. Estimation of a non-linear index under sample select
              lnsigma_v |  -2.340403   .0252419   -92.72   0.000    -2.389876    -2.29093
     logist_probability |   .5607503   .0657478     8.53   0.000     .4318871    .6896136
     ------------------------------------------------------------------------------------
-
 	. di 1/(1+exp(-.5607503))
 	. 63662613
     ```
