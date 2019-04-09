@@ -8,7 +8,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 1. To install:
 	- From Stata:
 
-    `net install chks, from(https://luischanci.github.io/chks/) replace`
+    	`net install chks, from(https://luischanci.github.io/chks/) replace`
 
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
@@ -16,17 +16,17 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 	- The general syntaxis is,
 
-    ```chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()```
+    	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
 
     where,
 
-	- `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
+		- `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
 
-	- `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+		- `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
 
-	- `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
+		- `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
 
-	- `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
+		- `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
 
 
 3. Models.
@@ -46,15 +46,15 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 	i. Estimation NLS,
 
-    `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
+    	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
 
     ii. On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-    `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
+    	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
 
     iii. Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command would be:
 
-    `chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
+    	`chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
 
     In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
 
