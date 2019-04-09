@@ -232,7 +232,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
       logist_probability |   .5607503   .0657478     8.53   0.000     .4318871    .6896136
       ------------------------------------------------------------------------------------
 	  di 1/(1+exp(-.5607503))
-	  63662613
+	  .63662613
     ```
 
 ------
