@@ -111,7 +111,7 @@ Kumbhakar, Parmeter, and Tsionas. 2013.
 
 {p 4}Luis Chancí,{p_end}
 {p 4}Binghamton University, NY.{p_end}
-{p 4}({browse "http://luischanci.github.io":website}){p_end}
+{p 4}website: {browse "http://luischanci.github.io":http://luischanci.github.io}{p_end}
 {p 4}email:{browse "mailto:lchanci1@binghamton.edu":lchanci1@binghamton.edu}.{p_end}
 
 {title:Also see}
