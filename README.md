@@ -101,18 +101,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
     . chks y x, es(zsf)
     Zero Stochastic Frontier for linear models
     (ZSF, linear model)
-    Iteration 0:   f(p) = -236.69929
-    Iteration 1:   f(p) =  79.142406
-    Iteration 2:   f(p) =  144.23055
-    Iteration 3:   f(p) =  149.85904
-    Iteration 4:   f(p) =  150.04607
-    Iteration 5:   f(p) =  150.04816
-    Iteration 6:   f(p) =  150.04816
-    Iteration 0:   f(p) = -236.69929
-    Iteration 1:   f(p) =  79.142406
-    Iteration 2:   f(p) =  144.23055
-    Iteration 3:   f(p) =  149.85904
-    Iteration 4:   f(p) =  150.04607
+
     Iteration 5:   f(p) =  150.04816
     Iteration 6:   f(p) =  150.04816
     (Zero) Stochastic Frontier, linear model. Estimation EM-Algorithm.
@@ -133,12 +122,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
     . chks y x, es(zsf) eo(ml)
     Zero Stochastic Frontier for linear models
     (ZSF, linear model)
-    Iteration 0:   f(p) = -14.388102  (not concave)
-    Iteration 1:   f(p) =  365.23572  (not concave)
-    Iteration 2:   f(p) =  373.16491  (not concave)
-    Iteration 3:   f(p) =  374.85774
-    Iteration 4:   f(p) =  375.08149
-    Iteration 5:   f(p) =  375.09279
+
     Iteration 6:   f(p) =  375.09283
     Iteration 7:   f(p) =  375.09283
     (Zero) Stochastic Frontier, linear model. M.L.E.
@@ -186,12 +170,6 @@ User-written Stata command. Estimation of a non-linear index under sample select
 						  	{delta3 = 0.3}*(ry3^{rho}-1) )  ///
 						    + ({b0}+{b1}*x1+{b2}*x2) ), r
 
-		Iteration 0:  residual SS =  21.78561
-		Iteration 1:  residual SS =  13.84372
-		Iteration 2:  residual SS =  12.23324
-		Iteration 3:  residual SS =  12.06096
-		Iteration 4:  residual SS =  12.05881
-		Iteration 5:  residual SS =   12.0588
 		Iteration 6:  residual SS =   12.0588
 		Iteration 7:  residual SS =   12.0588
 
@@ -225,15 +203,39 @@ User-written Stata command. Estimation of a non-linear index under sample select
           	    Y1 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 	  -------------+----------------------------------------------------------------
           	    x1 |   .0155817   .0006264    24.87   0.000      .014354    .0168095
-           	    x2 |   .0392952   .0009681    40.59   0.000     .0373978    .0411925
+          	    x2 |   .0392952   .0009681    40.59   0.000     .0373978    .0411925
              _cons |   2.993987   .0264685   113.11   0.000      2.94211    3.045865
                 Y2 |   .2249359   .0125398    17.94   0.000     .2003583    .2495134
                 Y3 |   .5125146   .0132849    38.58   0.000     .4864766    .5385526
                rho |   2.296911   .1106526    20.76   0.000     2.080036    2.513786
-   	     lnsigma_u |  -2.206232   .1435049   -15.37   0.000    -2.487496   -1.924967
+         lnsigma_u |  -2.206232   .1435049   -15.37   0.000    -2.487496   -1.924967
          lnsigma_v |  -2.435302   .0812527   -29.97   0.000    -2.594555    -2.27605
 	  ------------------------------------------------------------------------------
 	```
+
+ - Example 4: **Non-linear (Index). Zero Stochastic Frontier**.
+
+   	```
+    chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)
+
+	(Zero) Stochastic Frontier. Non-linear model. EM-Algorithm.
+    ------------------------------------------------------------------------------------
+                    Y1 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+    -------------------+----------------------------------------------------------------
+                    x1 |   .0155953   .0005609    27.81   0.000      .014496    .0166946
+                    x2 |   .0392709   .0007659    51.27   0.000     .0377697    .0407721
+                 _cons |   2.935441   .0167206   175.56   0.000     2.902669    2.968213
+                    Y2 |   .2252023   .0124254    18.12   0.000     .2008489    .2495557
+                    Y3 |   .5117927   .0132434    38.65   0.000     .4858362    .5377493
+                   rho |   2.293806   .1025533    22.37   0.000     2.092805    2.494807
+             lnsigma_u |  -2.299401   .0789157   -29.14   0.000    -2.454073   -2.144729
+             lnsigma_v |  -2.340403   .0252419   -92.72   0.000    -2.389876    -2.29093
+    logist_probability |   .5607503   .0657478     8.53   0.000     .4318871    .6896136
+    ------------------------------------------------------------------------------------
+
+	. di 1/(1+exp(-.5607503))
+	. 63662613
+    ```
 
 ------
 ### Author
