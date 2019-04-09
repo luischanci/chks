@@ -8,7 +8,7 @@ User-written Stata command. Estimation of a non-linear index under sample select
 1. To install:
 	- From Stata:
 
-    	`net install chks, from(https://luischanci.github.io/chks/) replace`
+    `net install chks, from(https://luischanci.github.io/chks/) replace`
 
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
@@ -16,17 +16,17 @@ User-written Stata command. Estimation of a non-linear index under sample select
 
 	- The general syntaxis is,
 
-    	```chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()```
+    ```chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()```
 
-    	where,
+    where,
 
-		- `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
+	- `indx()` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
 
-		- `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+	- `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
 
-		- `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
+	- `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
 
-		- `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
+	- `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
 
 
 3. Models.
