@@ -235,6 +235,12 @@ User-written Stata command. Estimation of a non-linear index under sample select
 	0.63662613
 	```
 ------
+</br>
+
+Final notes: This is a first draft (still in progress). Please provide me with any comments you may have on bugs, wording, inconsistencies, etc.
+
+</br>
+
 ### Author
 
 <a href="https://luischanci.github.io">Luis Chancí</a>
