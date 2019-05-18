@@ -229,7 +229,7 @@ void fn_zsf_ml(todo, b, Y, X, op, cri, g, H)
 	if (op[1] == 0) {
 
 		cri = ln(  P *   normalden(Y1,MU,SV) + 						 /*
-		*/	    (1-P)*(2*normalden(Y1,MU,S)  :* normal((Y1-MU)*LAM/S)) )
+		*/	    (1-P)*(2*normalden(Y1,MU,S)  :* normal(-(Y1-MU)*LAM/S)) )
 	}
 	else {
 		YM	  = Y[.,2::cols(Y)]
@@ -244,7 +244,7 @@ void fn_zsf_ml(todo, b, Y, X, op, cri, g, H)
 		MU	  = MU + Yd
 
 		cri   = ln(  P *   normalden(ln(Y1),MU,SV) + 						 /*
-		*/	      (1-P)*(2*normalden(ln(Y1),MU,S)  :* normal((ln(Y1)-MU)*LAM/S)) )
+		*/	      (1-P)*(2*normalden(ln(Y1),MU,S)  :* normal(-(ln(Y1)-MU)*LAM/S)) )
 	}
 }
 void fn_zsf_em(todo, b, Y, X, r, op, cri, g, H)
