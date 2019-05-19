@@ -46,21 +46,23 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     	with ![equation](https://latex.codecogs.com/gif.latex?Y_m^{*}=Y_m/Y_1)
 
-	i. Estimation NLS,
+## Using the code.
 
-    	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
+- Estimation NLS. Let's say that $M=3$ and there are $k$ regressors,
 
-    ii. On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
+`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
 
-    	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
+- On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-    iii. Finally, if additionally to (ii), there is a probability that some ![equation](https://latex.codecogs.com/gif.latex?u_{it}=0) (see for instance, Kumbhakar, Parmeter and Tsionas, 2013, **"A zero inefficiency stochastic frontier model"**, in _Journal of Econometrics_ , 172(1), 66-76), the command would be:
+`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
 
-    	`chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
+- Furthermore, if there is a probability that some $u_i=0$, known as **Zero-Inefficiency Stochastic Frontier** model (see Kumbhakar, Parmeter and Tsionas, 2013, "A zero inefficiency stochastic frontier model", in [_Journal of Econometrics_ , 172(1), 66-76](https://doi.org/10.1016/j.jeconom.2012.08.021)), the command would be:
 
-    In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
+`chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
 
-  - Other models or possibilities are simple variations, such as a Cobb-Douglas index, or linear functions. For instance, a version of a linear Zero-Inefficiency Stochastic Frontier model would be:
+In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
+
+- Other models or possibilities are simple variations, such as a Cobb-Douglas index, or linear functions. For instance, a version of a linear Zero-Inefficiency Stochastic Frontier model would be:
 
     ![equation](https://latex.codecogs.com/gif.latex?y_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
