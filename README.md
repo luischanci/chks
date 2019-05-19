@@ -211,11 +211,11 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 	  ------------------------------------------------------------------------------
 	```
 
-	- **Example 4: Non-linear (Index). Zero Stochastic Frontier**.
+- **Example 4: Non-linear (Index). Zero Stochastic Frontier**.
 
-		`chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)`
+`chks Y1 x1 x2, indx(Y2 Y3) t(ces) es(zsf) eo(em)`
 
-	  ```
+	```
 		------------------------------------------------------------------------------
 				Y1 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 		------------------------------------------------------------------------------
@@ -231,13 +231,17 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 		------------------------------------------------------------------------------
 	  di 1/(1+exp(-.5607503))
 	  0.63662613
-	  ```
+	```
 ------
 </br>
 
-Final notes: This is a first draft (still in progress). Please provide me with any comments you may have on bugs, wording, inconsistencies, etc.
+Final notes: This is a first draft (or a work in progress). Please provide me with any comment you may have on bugs, wording, inconsistencies, etc.
 
 </br>
+
+### Website
+
+<a href="https://luischanci.github.io/post/chks/">chks</a>
 
 ### Author
 
