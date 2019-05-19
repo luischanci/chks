@@ -50,17 +50,17 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 - Estimation NLS. Let's say that $M=3$ and there are $k$ regressors,
 
-`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
+ `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
 
 - On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
-`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
+ `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
 
 - Furthermore, if there is a probability that some $u_i=0$, known as **Zero-Inefficiency Stochastic Frontier** model (see Kumbhakar, Parmeter and Tsionas, 2013, "A zero inefficiency stochastic frontier model", in [_Journal of Econometrics_ , 172(1), 66-76](https://doi.org/10.1016/j.jeconom.2012.08.021)), the command would be:
 
-`chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
+ `chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
 
-In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
+ In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
 
 - Other models or possibilities are simple variations, such as a Cobb-Douglas index, or linear functions. For instance, a version of a linear Zero-Inefficiency Stochastic Frontier model would be:
 
@@ -70,78 +70,72 @@ In this case there are two additional options: Maximum Likelihood Extimation (ad
 
     `chks y1 x1 x2, es(zsf)`
 
-	In any case, it is also possible to report the robust standard errors (add `robust`) or omit the constant term (add `nocons`).
+Finally, it is possible to report the robust standard errors (add `robust`) or omit the constant term (add `nocons`).
 
-4. Examples.
+## Examples.
 
- - Example 1: **Linear model (ZISF)**.
-    - Data (simulation).
+- **Example 1: A Linear Z-SF.**
 
-      To illustrate the use of the command, I am going to use first a simulation proposed by Diego Restrepo (of course, any mistake would be my responsability).
+	Data (simulation). To illustrate the use of the command, I am going to use a simulation proposed by Diego Restrepo (of course, any mistake would be my responsability). The code for a cost function would be,
 
-    ```
-    clear all
-    gen x = rnormal()/10
-    gen v = rnormal()/10
-    gen z = rnormal()
-    gentrun double u, left(0)     /* Need module GENTRUN */
-    replace u = u/10              /* u ~ Truncated-left N(0,0.1)*/
-    replace u = 0 if _n > _N-_N/2 /* For a  p=50%, u=0, no inefficiency*/
-    gen 	  e = v + u
-    gen 	  y = 1 + x + e
-    ```
+	    ```
+	    clear all
+		set obs 1000
+	    gen x = rnormal()/10
+	    gen v = rnormal()/10
+	    gen z = rnormal()
+	    gentrun double u, left(0)     /* Need module GENTRUN */
+	    replace u = u/10              /* u ~ Truncated-left N(0,0.1)*/
+	    replace u = 0 if _n > _N-_N/2 /* For a  p=50%, u=0, no inefficiency*/
+	    gen 	  e = v - u			  /* For production function (not cost)*/
+	    gen 	  y = 1 + x + e
+	    ```
 
-    - Command:
+	  	Command: `chks y x, es(zsf)` for EM-algorithm and `chks y x, es(zsf) eo(ml)` for MLE.
 
-      `chks y x, es(zsf)`
+	  	Results using MLE:
 
-      or
+	    ```
+	    . chks y x, es(zsf) eo(ml)
+	    Zero Stochastic Frontier for linear models
+	    (ZSF, linear model)
+		.
+		.
+		.
+		Iteration 12:  f(p) =  715.46477
+		Iteration 13:  f(p) =  715.46477
+		 (Zero) Stochastic Frontier, linear model. M.L.E.
+		-----------------------------------------------------------------------------------
+		                y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+		------------------+----------------------------------------------------------------
+		                x |   1.020781   .0376483    27.11   0.000     .9469912     1.09457
+		            _cons |   .9688054   .0050194   193.01   0.000     .9589675    .9786434
+		        lnsigma_u |  -1.677142   .3815109    -4.40   0.000    -2.424889   -.9293944
+		        lnsigma_v |  -2.170457   .0289882   -74.87   0.000    -2.227272   -2.113641
+		logist_probabil~y |   3.404257   1.090584     3.12   0.002     1.266751    5.541763
+		-----------------------------------------------------------------------------------
+	    ```
 
-      `chks y x, es(zsf) eo(ml)`
+		Results using EM-algorithm:
 
-    - Results using EM-algorithm:
-
-    ```
-    . chks y x, es(zsf)
-    Zero Stochastic Frontier for linear models
-    (ZSF, linear model)
-
-    Iteration 5:   f(p) =  150.04816
-    Iteration 6:   f(p) =  150.04816
-    (Zero) Stochastic Frontier, linear model. Estimation EM-Algorithm.
-    -----------------------------------------------------------------------------------
-                   yD |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
-    ------------------+----------------------------------------------------------------
-                   xD |    1.02164   .0517391    19.75   0.000     .9202334    1.123047
-                _cons |   1.057753   .0055784   189.61   0.000      1.04682    1.068687
-            lnsigma_u |   -3.71969   .6994031    -5.32   0.000    -5.090494   -2.348885
-            lnsigma_v |  -2.166826   .0317456   -68.26   0.000    -2.229046   -2.104606
-    logit_probability |   1.627449   .1207253    13.48   0.000     1.390832    1.864066
-    -----------------------------------------------------------------------------------
-    ```
-
-    - Results using MLE:
-
-    ```
-    . chks y x, es(zsf) eo(ml)
-    Zero Stochastic Frontier for linear models
-    (ZSF, linear model)
-
-    Iteration 6:   f(p) =  375.09283
-    Iteration 7:   f(p) =  375.09283
-    (Zero) Stochastic Frontier, linear model. M.L.E.
-    -----------------------------------------------------------------------------------
-                   yD |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
-    ------------------+----------------------------------------------------------------
-                   xD |     1.0212   .0515218    19.82   0.000     .9202194    1.122181
-                _cons |   1.036664   .0175377    59.11   0.000     1.002291    1.071037
-            lnsigma_u |  -2.115596   .3437051    -6.16   0.000    -2.789246   -1.441947
-            lnsigma_v |  -2.263115   .0683824   -33.09   0.000    -2.397142   -2.129088
-    logit_probability |   1.475334   1.507923     0.98   0.328    -1.480141    4.430808
-    -----------------------------------------------------------------------------------
-    ```
-
-	thus, the estimated probability would be: `di 1/(1+exp(-1.4))=0.8`
+	    ```
+	    . chks y x, es(zsf)
+	    Zero Stochastic Frontier for linear models
+	    (ZSF, linear model)
+		.
+		.
+		.
+		(Zero) Stochastic Frontier, linear model. EM-Algorithm.
+	   	-----------------------------------------------------------------------------------
+	                   	y |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+	    ------------------+----------------------------------------------------------------
+	                   	x |   1.021142   .0367627    27.78   0.000     .9490882    1.093195
+	               	_cons |   .9699379   .0036587   265.10   0.000     .9627669    .9771089
+	           	lnsigma_u |  -1.775768   .1535916   -11.56   0.000    -2.076802   -1.474734
+	           	lnsigma_v |  -2.175327   .0227074   -95.80   0.000    -2.219833   -2.130821
+	   	logist_probabil~y |    3.07854   .1541839    19.97   0.000     2.776345    3.380734
+	   	-----------------------------------------------------------------------------------
+	    ```
 
  - Example 2: **Non-linear index**.
 
