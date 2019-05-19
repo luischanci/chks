@@ -95,7 +95,7 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 
 	Results using MLE:
 
-	    ```
+    ```
 	    . chks y x, es(zsf) eo(ml)
 	    Zero Stochastic Frontier for linear models
 	    (ZSF, linear model)
@@ -114,11 +114,11 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 		        lnsigma_v |  -2.170457   .0289882   -74.87   0.000    -2.227272   -2.113641
 		logist_probabil~y |   3.404257   1.090584     3.12   0.002     1.266751    5.541763
 		-----------------------------------------------------------------------------------
-	    ```
+    ```
 
-		Results using EM-algorithm:
+	Results using EM-algorithm:
 
-	    ```
+    ```
 	    . chks y x, es(zsf)
 	    Zero Stochastic Frontier for linear models
 	    (ZSF, linear model)
@@ -135,7 +135,7 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 	           	lnsigma_v |  -2.175327   .0227074   -95.80   0.000    -2.219833   -2.130821
 	   	logist_probabil~y |    3.07854   .1541839    19.97   0.000     2.776345    3.380734
 	   	-----------------------------------------------------------------------------------
-	    ```
+    ```
 
  - Example 2: **Non-linear index**.
 
