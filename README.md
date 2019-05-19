@@ -21,13 +21,13 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
     	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
 
   - where,
-		- ```indx()``` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
+	  - ```indx()``` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
 
-		- `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+	  - `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
 
-		- `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
+	  - `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
 
-		- `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
+	  - `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
 
 
 3. Models.
