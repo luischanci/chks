@@ -78,7 +78,7 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 
 	Data (simulation). To illustrate the use of the command, I am going to use a simulation proposed by Diego Restrepo (of course, any mistake would be my responsability). The code for a cost function would be,
 
-	    ```
+	```
 	    clear all
 		set obs 1000
 	    gen x = rnormal()/10
@@ -89,11 +89,11 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 	    replace u = 0 if _n > _N-_N/2 /* For a  p=50%, u=0, no inefficiency*/
 	    gen 	  e = v - u			  /* For production function (not cost)*/
 	    gen 	  y = 1 + x + e
-	    ```
+	```
 
-	  	Command: `chks y x, es(zsf)` for EM-algorithm and `chks y x, es(zsf) eo(ml)` for MLE.
+	Command: `chks y x, es(zsf)` for EM-algorithm and `chks y x, es(zsf) eo(ml)` for MLE.
 
-	  	Results using MLE:
+	Results using MLE:
 
 	    ```
 	    . chks y x, es(zsf) eo(ml)
