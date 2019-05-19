@@ -32,9 +32,9 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 
 3. Models.
-	- The general model is one in which a non-linear index ![equation](https://latex.codecogs.com/gif.latex?\eta) is a function of a vector of explanatory variables **x** and a residual component ![equation](https://latex.codecogs.com/gif.latex?\epsilon):
+	- The general model is one in which a nonlinear index ![equation](https://latex.codecogs.com/gif.latex?\eta) is a function of a vector of explanatory variables **x** and a residual component ![equation](https://latex.codecogs.com/gif.latex?\epsilon):
 
-    ![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+    	![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
     where, for instance, there are three variables that form the index (could be M variables):
 
