@@ -18,10 +18,10 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 	The general syntaxis is,
 
-    	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
+    `chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
 
   	where,
-	
+
 	  - `indx()` _varlist_ for the index. `indx()` could be empty, which means that the model is linear rather than a nonlinear index.
 
 	  - `type()`. Functional form for the nonlinear index. There are two types: CES `type(ces)` and Cobb-Douglas `type(cd)`.
@@ -38,7 +38,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     where, for instance, there are three variables that form the index (could be M variables):
 
-    ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum_{m=1}^3{\delta_mY_m^\rho}\right)^{1/\rho})
+    ![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum_{m=1}^M{\delta_mY_m^\rho}\right)^{1/\rho})
 
     thus, the equation to estimate is:
 
