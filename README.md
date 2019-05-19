@@ -1,14 +1,41 @@
 
 # chks
 
-User-written Stata command. Estimation of a non-linear index under sample selection. This is a code under construction for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
+User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Frontier Model. This code is a beta version and it's been developed for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
 
 <a href="https://luischanci.github.io">(Home)</a>
+
+## Getting Started
+
+1. **Install.** You can choose from one of the following two methods to install:
+	- From the Stata command window:
+
+    	`net install chks, from(https://luischanci.github.io/chks/) replace`
+
+	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
+
+2. **Syntaxis.**
+
+	- The general syntaxis is,
+
+    	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
+
+  - where,
+
+		`indx()`. _varlist_ for the index. `indx()` could be empty, which means that the model is linear rather than a nonlinear idex.
+
+		`type()`. Functional form for the nonlinear index. There are two types: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+
+		`estimation()`. Estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
+
+		`eoption()`: is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
+
+$$\,$$
 
 1. To install:
 	- From Stata:
 
-    	`net install chks, from(https://luischanci.github.io/chks/) replace`
+      `net install chks, from(https://luischanci.github.io/chks/) replace`
 
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
