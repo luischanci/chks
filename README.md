@@ -16,14 +16,15 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 2. **Syntaxis.**
 
-	- The general syntaxis is,
+	The general syntaxis is,
 
     	`chks depvariable xregressors, indx(indexvariables) type() estimation() eoption()`
 
-  - where,
-	  - ```indx()``` contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an idex.
+  	where,
+	
+	  - `indx()` _varlist_ for the index. `indx()` could be empty, which means that the model is linear rather than a nonlinear index.
 
-	  - `type()` is the type of nonlinear index. There are two possibilities: CES `type(ces)` and Cobb-Douglas `type(cd)`.
+	  - `type()`. Functional form for the nonlinear index. There are two types: CES `type(ces)` and Cobb-Douglas `type(cd)`.
 
 	  - `estimation()` is the estimation method: NLS `estimation(nls)`, Stochastic Frontier `estimation(sf)`, or Zero-Stochastic Frontier `estimation(zsf)`.
 
