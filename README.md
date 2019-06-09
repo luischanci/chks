@@ -30,6 +30,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 	  - `eoption()` is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation `eoption(ml)` or Expectation-Maximization Algorithm `eoption(em)`. EM is the default option.
 
+	  - `maxitera()` specifies the maximum number of iterations; the default is 500.
 
 3. Models.
 	- The general model is one in which a nonlinear index (![equation](https://latex.codecogs.com/gif.latex?\eta)) is a function of a vector of explanatory variables (**x**) and a residual term (![equation](https://latex.codecogs.com/gif.latex?\epsilon)):
