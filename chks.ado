@@ -6,15 +6,16 @@
 cap pro drop chks
 pro chks, eclass
 version 14.2
-syntax varlist (min=2) 		/// minimun one ind. variable
-	   [if] [in] 			///
-	   [, 					///
-	   INdx(varlist) 		/// Index      		  : Other Ym variables
-	   Type(string)			/// Type       		  : cd,ces
-	   EStimation(string)	/// Estimation 		  : nls,sf,zsf
-	   EOption(string)		/// Estimation Option : ml, em (for EM-Algorithm)
-	   noCONstant 			///
-	   Robust 				///
+syntax varlist (min=2) 		 /// minimun one ind. variable
+	   [if] [in] 			 ///
+	   [, 					 ///
+	   INdx(varlist) 		 /// Index      		  : Other Ym variables
+	   Type(string)			 /// Type       		  : cd,ces
+	   EStimation(string)	 /// Estimation 		  : nls,sf,zsf
+	   EOption(string)		 /// Estimation Option : ml, em (for EM-Algorithm)
+	   noCONstant 			 ///
+	   Robust 				 ///
+	   MAXItera(integer 500) /// Default max numb iterations: 500
 	   ]
 
 	local depvar: word 1 of `varlist'
@@ -57,7 +58,7 @@ syntax varlist (min=2) 		/// minimun one ind. variable
 
 
 **********************************ESTIMATION
-	if "`indx'" == "" {
+	if "`indx'" == "" {											
 		if	"`type'" == "" {
 			if ("`estimation'" == "" | "`estimation'" == "nls") {
 				display "Linear function. (Least Squares)"
@@ -69,9 +70,9 @@ syntax varlist (min=2) 		/// minimun one ind. variable
 			}
 			else if "`estimation'" == "zsf" {
 				di "Zero Stochastic Frontier for linear models"
-				mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", ///
+				mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", /// MATA
 							"`type'","`estimation'","`eoption'", 		///
-							"`constant'","`robust'")
+							"`constant'","`robust'",`maxitera')
 				mat     `b' = r(beta)
 				mat     `V' = r(V)
 				local vnames `regs' _cons lnsigma_u lnsigma_v logist_probability
@@ -115,9 +116,9 @@ syntax varlist (min=2) 		/// minimun one ind. variable
 			}
 			else {
 				display "Linear Index.(Zero - Stochastic Frontier)"
-				mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", ///
+				mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", /// MATA
 						 "`type'","`estimation'","`eoption'", 		    ///
-						 "`constant'","`robust'")
+						 "`constant'","`robust'",`maxitera')
 
 				mat     `b' = r(beta)
 				mat     `V' = r(V)
@@ -135,9 +136,9 @@ syntax varlist (min=2) 		/// minimun one ind. variable
 				di "{err}Non-linear model. Missing {cmd:estimation()} - nls, sf, zsf."
 				exit
 			}
-			mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", ///
+			mata: chks_m("`depvar'", "`regs'", "`indx'", "`touse'", ///  MATA
 						 "`type'","`estimation'","`eoption'", 		///
-						 "`constant'","`robust'")
+						 "`constant'","`robust'",`maxitera')
 			mat     `b' = r(beta)
 			mat     `V' = r(V)
 			local vnames `regs' _cons `indx'
@@ -300,7 +301,8 @@ void chks_m(string scalar yname,
 			string scalar e1_opt,
 			string scalar e2_opt,
 			string scalar c_opt,
-			string scalar r_opt)
+			string scalar r_opt,
+			real   scalar maxite)
 {
 	st_view(Y1,., tokens(yname), touse)
 	st_view(X,., tokens(xnames), touse)
@@ -308,7 +310,6 @@ void chks_m(string scalar yname,
 	if (indxnames != "")(st_view(YM,.,tokens(indxnames), touse));;
 	if (c_opt == "")( X = (X , J(rows(X),1,1)) );;
 
-	maxite = 200
 
 if (e1_opt != "zsf"){
 S =	optimize_init()

@@ -1,20 +1,31 @@
 {smcl}
-{* *! version 1.1 March2019}{...}
+{* *! version 1.2 June2019}{...}
 {hline}
 help for {hi:chks}
 {hline}
+{viewerjumpto "Description" "chks##description"}{...}
 {viewerjumpto "Syntax" "mchks##syntax"}{...}
 {viewerjumpto "Options" "chks##options"}{...}
+{viewerjumpto "Citation" "chks##citation"}{...}
 {viewerjumpto "Description" "chks##description"}{...}
-{viewerjumpto "Stored results" "chks##results"}{...}
+{viewerjumpto "Stored Values" "chks##return"}{...}
 {viewerjumpto "Examples" "chks##examples"}{...}
 {viewerjumpto "References" "chks##references"}{...}
 {viewerjumpto "Author" "chks##author"}{...}
 {title:Title}
 
 {p2colset 5 20 22 2}{...}
-{p 4 8}{cmd:chks} {hline 2} Estimation of Linear / Non-linear, (Zero) Stochastic Frontier Models.{p_end}
+{p 4 8}{cmd:chks} {hline 2} Estimation of Linear / Non-linear Zero-Stochastic Frontier Models.{p_end}
 {p2colreset}{...}
+
+{marker description}{...}
+{title:Description}
+
+{p 4 4 2}{cmd:chks} User-written Stata command. Estimation of a non-linear index under sample selection. This is a code under construction for a working paper.
+
+{p 4 12 2}For more information, 
+visit: {browse "http://luischanci.github.io/chks"} {p_end}
+
 
 {marker syntax}{...}
 {title:Syntax}
@@ -24,50 +35,43 @@ help for {hi:chks}
 [{cmd:,}
  {cmdab:in:dx(}
  {varlist}{cmd:)}
- {cmdab:t:ype(}
- {it:function}{cmd:)}
- {cmdab:es:timation(}
- {it:technique}{cmd:)}
- {cmdab:eo:ption(}
- {it:method}{cmd:)}
+ {cmdab:t:ype()}
+ {cmdab:es:timation()}
+ {cmdab:eo:ption()}
  {cmdab:nonc:onstant}
  {cmdab:r:obust}
+ {cmdab:maxi:tera(#)}
 ]
 
-{marker description}{...}
-{title:Description}
-
-{p 4 4 2}{cmd:chks} User-written Stata command. Estimation of a non-linear index under sample selection. This is a code under construction for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
-
-{p 4 12 2}For more information, visit: {browse "http://luischanci.github.io/chks":http://luischanci.github.io/chks}{p_end}
-
-
 {marker options}{...}
-{title:Options}
 
 {synoptset 20 tabbed}{...}
 {synopthdr}
 {synoptline}
-{syntab:Model}
+
+{syntab:Nonlinear Model}
 {synopt :{opth in:dx(varlist)}}contains the varlist that forms the index, excluding one variable (Y1). indx() could be empty, which means it is a linear model rather than an index.{p_end}
-{synopt :{opt nocon:stant}}suppress constant term{p_end}
 
 {syntab:Functional Form}
-{synopt :{opth t:ype(function)}}{it:function} may be Cobb-Douglas ({opt cd}) or CES ({opt ces}){p_end}
+{synopt :{opt t:ype(function)}}{it:function} may be Cobb-Douglas ({opt cd}) or CES ({opt ces}){p_end}
 
 {syntab:Estimation}
-{synopt :{opth es:timation(technique)}}{it:technique} may be Nonlinear Least Squares ({opt nls}), Stochastic Frontier ({opt sf}), or Zero-Stochastic Frontier ({opt zsf}).{p_end}
+{synopt :{opt es:timation(method)}}{it:method} may be Nonlinear Least Squares ({opt nls}), Stochastic Frontier ({opt sf}), or Zero-Stochastic Frontier ({opt zsf}).{p_end}
 
-{syntab:Estimation Option}
-{synopt :{opth eo:ption(method)}}{it:method} is the estimation option when estimation is ZSF. It could be Maximum Likelihood Estimation ({opt ml}) or Expectation-Maximization Algorithm ({opt em}). EM is the default option.{p_end}
+{synopt :{opt eo:ption()}} additional estimation specification when estimation method is ZSF. It could be Maximum Likelihood Estimation ({opt ml}) or Expectation-Maximization Algorithm ({opt em}). EM is the default option.{p_end}
 
 {syntab:SE/Robust}
-{synopt :{opth vce(vcetype)}}{it:vcetype} may be {opt r:obust}{p_end}
+{synopt :{opth vce(vcetype)}}{it:vcetype} may be {opt r:obust}.{p_end}
 
+{syntab:Constant}
+{synopt :{opt nocon:stant}}suppress constant term.{p_end}
+
+{syntab:Optimization}
+{synopt :{opt maxi:tera(#)}}specifies the maximum number of iterations; the default is 500.{p_end}
 
 {synoptset 28 tabbed}{...}
 
-
+{marker citation}{...}
 {title:Citation}
 
 {p 4 8 2}{cmd:chks} is not an official Stata command.
@@ -76,7 +80,7 @@ Please cite it as such: {p_end}
 {p 8 8 2}Chancí, L. 2019. chks command. Estimation of linear and non-linear (zero) stochastic frontier models. {it: Mimeo}.{p_end}
 
 
-{marker results}{...}
+{marker return}{...}
 {title:Return values}
 
 {col 4}Matrices
