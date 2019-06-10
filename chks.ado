@@ -5,8 +5,8 @@
 *! net install chks, replace from ("https://luischanci.github.io/chks/")
 cap pro drop chks
 pro chks, eclass
-version 14.2
-syntax varlist (min=2) 		 /// minimun one ind. variable
+version 14
+syntax varlist(min=2 numeric ts fv) ///
 	   [if] [in] 			 ///
 	   [, 					 ///
 	   INdx(varlist) 		 /// Index      		  : Other Ym variables
@@ -18,12 +18,17 @@ syntax varlist (min=2) 		 /// minimun one ind. variable
 	   MAXItera(integer 500) /// Default max numb iterations: 500
 	   ]
 
-	local depvar: word 1 of `varlist'
-	local regs  : list varlist - depvar
-
 	marksample touse
-	preserve
 	markout `touse' `indx'
+
+	gettoken depvar indepvars : varlist
+
+	_fv_check_depvar `depvar'
+
+	fvexpand `indepvars'
+    local regs `r(varlist)'
+
+	preserve
 
 **********************************ERRORS
 	if ("`type'" != "" & "`type'" != "cd" & "`type'" != "ces") {
@@ -58,7 +63,7 @@ syntax varlist (min=2) 		 /// minimun one ind. variable
 
 
 **********************************ESTIMATION
-	if "`indx'" == "" {											
+	if "`indx'" == "" {
 		if	"`type'" == "" {
 			if ("`estimation'" == "" | "`estimation'" == "nls") {
 				display "Linear function. (Least Squares)"
