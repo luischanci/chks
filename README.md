@@ -1,6 +1,4 @@
 
-markdown: kramdown
-
 # chks
 
 User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Frontier Model. This code is a beta version and it's been developed for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
@@ -35,7 +33,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 	  - `maxitera()` specifies the maximum number of iterations; the default is 500.
 
 3. Models.
-	- The general model is one in which a nonlinear index ( `$$` \[\eta\]) is a function of a vector of explanatory variables (**x**) and a residual term ($\epsilon$):
+	- The general model is one in which a nonlinear index ( $$\eta$$ \[\eta\]) is a function of a vector of explanatory variables (**x**) and a residual term ($\epsilon$):
 
     	![equation](https://latex.codecogs.com/gif.latex?log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
 
