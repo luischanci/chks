@@ -1,4 +1,6 @@
 
+markdown: kramdown
+
 # chks
 
 User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Frontier Model. This code is a beta version and it's been developed for the working paper Chancí, Kumbhakar, and Sandoval, 2019.
