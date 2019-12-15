@@ -52,21 +52,21 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
  	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
 
-- On the other hand, if the residual is such that ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{it}=v_{it}-u_{it})  with, ![formula](https://render.githubusercontent.com/render/math?math=v_{it}\sim\mathcal{N}(0,\sigma^2_v)) and ![formula](https://render.githubusercontent.com/render/math?math=u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
+- On the other hand, if the residual is such that ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{it}=v_{it}-u_{it}), with ![formula](https://render.githubusercontent.com/render/math?math=v_{it}\sim\mathcal{N}(0,\sigma^2_v)) and ![formula](https://render.githubusercontent.com/render/math?math=u_{it}\sim\mathcal{N}^%2B(0,\sigma^2_u)), similar to a Nonlinear Stochastic Frontier Model, the command for estimation would be:
 
  	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
 
 - Furthermore, if there is a probability that some $u_i=0$, known as **Zero-Inefficiency Stochastic Frontier** model (see Kumbhakar, Parmeter and Tsionas, 2013, "A zero inefficiency stochastic frontier model", in [_Journal of Econometrics_ , 172(1), 66-76](https://doi.org/10.1016/j.jeconom.2012.08.021)), the command would be:
 
- `chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
+ 	`chks Y1 x1 x2 ...xk, idx(Y2 Y3) t(ces) es(zsf)`
 
- In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
+ 	In this case there are two additional options: Maximum Likelihood Extimation (add `eo(ml)`) or Expectation-Maximization Algorithm (add `eo(em)`).
 
 - Other models or possibilities are simple variations, such as a Cobb-Douglas index, or linear functions. For instance, a version of a linear Zero-Inefficiency Stochastic Frontier model would be:
 
-    ![equation](https://latex.codecogs.com/gif.latex?y_{it}=\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+    ![formula](https://render.githubusercontent.com/render/math?math=y_{it}=\mathbf{x}_{it}\mathbf{\beta'}%2B\epsilon_{it})
 
-    with ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)). In this case the command is:
+    with ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{it}=v_{it}-u_{it}); with ![formula](https://render.githubusercontent.com/render/math?math=v_{it}\sim\mathcal{N}(0,\sigma^2_v)) and ![formula](https://render.githubusercontent.com/render/math?math=u_{it}\sim\mathcal{N}^%2B(0,\sigma^2_u)). In this case, the command would be:
 
     `chks y1 x1 x2, es(zsf)`
 
