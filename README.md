@@ -64,7 +64,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 - Other models or possibilities are simple variations, such as a Cobb-Douglas index, or linear functions. For instance, a version of a linear Zero-Inefficiency Stochastic Frontier model would be:
 
-    ![formula](https://render.githubusercontent.com/render/math?math=y_{it}=\mathbf{x}_{it}\mathbf{\beta'}%2B\epsilon_{it})
+    ![formula](https://render.githubusercontent.com/render/math?math=y_{it}=\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
 
     with ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{it}=v_{it}-u_{it}); with ![formula](https://render.githubusercontent.com/render/math?math=v_{it}\sim\mathcal{N}(0,\sigma^2_v)) and ![formula](https://render.githubusercontent.com/render/math?math=u_{it}\sim\mathcal{N}^%2B(0,\sigma^2_u)). In this case, the command would be:
 
@@ -80,7 +80,7 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 
 	```
 	    clear all
-		set obs 1000
+			set obs 1000
 	    gen x = rnormal()/10
 	    gen v = rnormal()/10
 	    gen z = rnormal()
