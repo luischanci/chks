@@ -35,7 +35,8 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 3. Models.
 	- The general model is one in which a nonlinear index (![formula](https://render.githubusercontent.com/render/math?math=\eta)) is a function of a vector of explanatory variables (**x**) and a residual term (![formula](https://render.githubusercontent.com/render/math?math=\epsilon)):
 
-			![formula](https://render.githubusercontent.com/render/math?math=log(\eta)_{it}=\mathbf{x}_{it}'\mathbf{\beta}+\epsilon_{it})
+	![log(\eta)_{it}=\mathbf{x}_{it}\mathbf{\beta'}+\epsilon_{it}](https://render.githubusercontent.com/render/math?math=log(%5Ceta)_%7Bit%7D%3D%5Cmathbf%7Bx%7D_%7Bit%7D%5Cmathbf%7B%5Cbeta'%7D%2B%5Cepsilon_%7Bit%7D)
+
 
     	where,
 
