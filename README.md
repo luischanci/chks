@@ -50,9 +50,9 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
 - Estimation NLS. Let's say that $M=3$ and there are $k$ regressors,
 
- `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
+ 	`chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(nls)`
 
-- On the other hand, if the residual is such that ![equation](https://latex.codecogs.com/gif.latex?\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
+- On the other hand, if the residual is such that ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{it}=v_{it}-u_{it},&space;with,&space;v_{it}\sim\mathcal{N}(0,\sigma^2_v),&space;and,&space;u_{it}\sim\mathcal{N}^&plus;(0,\sigma^2_u)), which is similar to a Nonlinear Stochastic Frontier Model, the command for estimation is:
 
  `chks Y1 x1 x2 ... xk, idx(Y2 Y3) t(ces) es(sf)`
 
