@@ -39,13 +39,13 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     	where,
 
-    	![equation](https://latex.codecogs.com/gif.latex?\eta=\left(\sum_{m=1}^M{\delta_mY_m^\rho}\right)^{1/\rho})
+    ![formula](https://render.githubusercontent.com/render/math?math=\eta=\left(\sum_{m=1}^M{\delta_mY_m^\rho}\right)^{1/\rho})
 
     	thus, the equation to estimate is:
 
-    	![equation](https://latex.codecogs.com/gif.latex?log(Y_1)_{it}=-(1/\rho)*log\left(1&plus;\sum_{m\neq1}{\delta_m*(Y_m^{*\rho}-1)}\right)&plus;\mathbf{x}_{it}\mathbf{\beta'}&plus;\epsilon_{it})
+    ![formula](https://render.githubusercontent.com/render/math?math=log(Y_1)_{it}=-(1/\rho)*log\left(1+\sum_{m\neq1}{\delta_m*(Y_m^{*\rho}-1)}\right)+\mathbf{x}_{it}\mathbf{\beta'}+\epsilon_{it})
 
-    	with ![equation](https://latex.codecogs.com/gif.latex?Y_m^{*}=Y_m/Y_1)
+    	with ![formula](https://render.githubusercontent.com/render/math?math=Y_m^{*}=Y_m/Y_1)
 
 ## Using the code.
 
