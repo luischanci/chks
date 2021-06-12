@@ -10,7 +10,8 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 1. **Install.** You can choose from one of the following two methods to install:
 	- From the Stata command window:
 
-    	`net install chks, from ("https://raw.githubusercontent.com/luischanci/chks/master") replace`
+			`net install chks, from("https://luischanci.github.io/chks/")`
+    	[//]: # (OLS: `net install chks, from ("https://raw.githubusercontent.com/luischanci/chks/master") replace` )
 
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
