@@ -11,7 +11,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 	- From the Stata command window:
 
 			`net install chks, from("https://luischanci.github.io/chks/")`
-    	[//]: # (OLS: `net install chks, from ("https://raw.githubusercontent.com/luischanci/chks/master") replace` )
+    	<!---  `net install chks, from ("https://raw.githubusercontent.com/luischanci/chks/master") replace` --->
 
 	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
 
@@ -236,18 +236,17 @@ Finally, it is possible to report the robust standard errors (add `robust`) or o
 ------
 </br>
 
-Final notes: This is a first draft (or a work in progress). Please provide me with any comment you may have on bugs, wording, inconsistencies, etc.
+Final notes:
+
+- It's a draft (2019). Please provide me with any comments you may have on bugs, wording, inconsistencies, etc.
+- All files available here are for education and/or research purposes ONLY. The code within this repository comes with no guarantee, the use of this code is your responsibility.
 
 </br>
 
 ### Website
 
-<a href="https://luischanci.github.io/post/chks/">chks</a>
+<a href="https://luischanci.github.io/resources/chks/">chks</a>
 
 ### Author
-
-<a href="https://luischanci.github.io">Luis Chancí</a>
-
-lchanci1@binghamton.edu
-
-Economics, Binghamton University.
+<a href="https://www.luischanci.com">Luis Chancí</a>
+<a href="mailto:luischanci@santotomas.cl">luischanci@santotomas.cl</a>
