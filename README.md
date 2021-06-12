@@ -13,7 +13,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 			`net install chks, from("https://luischanci.github.io/chks/")`
     	<!---  `net install chks, from ("https://raw.githubusercontent.com/luischanci/chks/master") replace` --->
 
-	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\m\`).
+	- Manual installation: <a href="https://github.com/luischanci/chks/zipball/master">Download</a>, unzip, and locate all the files into the Stata ado folder (for instance, locate the unzipped ado and other files into `C:\ado\personal\c\`).
 
 2. **Syntaxis.**
 
@@ -44,7 +44,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     	thus, the equation to estimate is:
 
-    ![formula](https://render.githubusercontent.com/render/math?math=\text{Ln}(Y_1)_{it}=-(1/\rho)*\text{Ln}\left(1+\sum_{m\neq1}{\delta_m*((Y_m/Y_1)^{\rho}-1)}\right)%2B\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
+    ![formula](https://render.githubusercontent.com/render/math?math=\text{Ln}(Y_1)_{it}=-(1/\rho)*\text{Ln}\left(1 + \sum_{m\neq1}{\delta_m*((Y_m/Y_1)^{\rho}-1)}\right)%2B\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
 
 
 ## Using the code.
