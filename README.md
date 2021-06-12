@@ -44,7 +44,7 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     	thus, the equation to estimate is:
 
-    ![formula](https://render.githubusercontent.com/render/math?math=\text{Ln}(Y_1)_{it}=-(1/\rho)*\text{Ln}\left(1+\sum_{m\neq1}{\delta_m*((Y_m/Y_1)^{\rho}-1)}\right)%2B\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
+    ![formula](https://render.githubusercontent.com/render/math?math=\text{Ln}(Y_1)_{it}=-(1/\rho)*\text{Ln}\left(1%2B\sum_{m\neq1}{\delta_m*((Y_m/Y_1)^{\rho}-1)}\right)%2B\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
 
 		<a href="https://www.codecogs.com/eqnedit.php?latex=\ln(Y_{1it})=-(1/\rho)*ln\left&space;(&space;1&plus;\sum_{m=2}^M{\delta_r\left&space;(&space;(Y_{mit}/Y_{1it})^\rho-1&space;\right&space;)}&space;\right&space;)&space;&plus;\boldmath{x}'_{it}\beta&plus;\epsilon_{it}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\ln(Y_{1it})=-(1/\rho)*ln\left&space;(&space;1&plus;\sum_{m=2}^M{\delta_r\left&space;(&space;(Y_{mit}/Y_{1it})^\rho-1&space;\right&space;)}&space;\right&space;)&space;&plus;\boldmath{x}'_{it}\beta&plus;\epsilon_{it}" title="\ln(Y_{1it})=-(1/\rho)*ln\left ( 1+\sum_{m=2}^M{\delta_r\left ( (Y_{mit}/Y_{1it})^\rho-1 \right )} \right ) +\boldmath{x}'_{it}\beta+\epsilon_{it}" /></a>
 
