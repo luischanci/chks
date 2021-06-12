@@ -46,6 +46,9 @@ User-written Stata command. Nonlinear index and Zero-Inefficiency Stochastic Fro
 
     ![formula](https://render.githubusercontent.com/render/math?math=\text{Ln}(Y_1)_{it}=-(1/\rho)*\text{Ln}\left(1 + \sum_{m\neq1}{\delta_m*((Y_m/Y_1)^{\rho}-1)}\right)%2B\mathbf{x}_{it}\mathbf{\beta}%2B\epsilon_{it})
 
+		```math
+		Ln(Y_1)_{it}
+		```
 
 ## Using the code.
 
