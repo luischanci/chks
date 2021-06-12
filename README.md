@@ -248,5 +248,7 @@ Final notes:
 <a href="https://luischanci.github.io/resources/chks/">chks</a>
 
 ### Author
+
 <a href="https://www.luischanci.com">Luis Chancí</a>
+
 <a href="mailto:luischanci@santotomas.cl">luischanci@santotomas.cl</a>
